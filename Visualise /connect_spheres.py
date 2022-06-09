@@ -1,5 +1,8 @@
-
+#THIS CODE WAS NOT REFERNCED IN REPORT, AS IT WAS NEVER IMPLEMENTED IN FINAL ENGAGEMENT TESTING
 import bpy
+
+
+
 
 def hookCurve(o1, o2, scn, link_number):
     curve = bpy.data.curves.new("link", 'CURVE')
@@ -31,6 +34,7 @@ def hookCurve(o1, o2, scn, link_number):
 #    curve_name = curve.name 
 #    
     curve.bevel_depth = 0.035
+    curve.dimensions = '3D'
     
 
     # the mode_set() invalidated the pointers, so get fresh ones
@@ -106,19 +110,23 @@ obj12 = hookCurve(o28,o32, bpy.context.collection, 14)
 obj13 = hookCurve(o32,o30, bpy.context.collection, 15)
 
 
-#right arm + hand
+#right arm +
 obj14 = hookCurve(o12,o14, bpy.context.collection, 16)
 obj15 = hookCurve(o16,o14, bpy.context.collection, 17)
 obj16 = hookCurve(o16,o18, bpy.context.collection, 18)
+
+#right hand
 obj17 = hookCurve(o16,o22, bpy.context.collection, 19)
 obj18 = hookCurve(o16,o20, bpy.context.collection, 20)
 obj19 = hookCurve(o18,o20, bpy.context.collection, 21)
 
 
-#left arm + hand
+##left arm
 obj20 = hookCurve(o11,o13, bpy.context.collection, 22)
 obj21 = hookCurve(o13,o15, bpy.context.collection, 23)
 obj22 = hookCurve(o15,o21, bpy.context.collection, 24)
+
+# Left Hand
 obj23 = hookCurve(o15,o17, bpy.context.collection, 25)
 obj24 = hookCurve(o17,o19, bpy.context.collection, 26)
 obj25 = hookCurve(o15,o19, bpy.context.collection, 27)
