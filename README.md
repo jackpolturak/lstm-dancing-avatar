@@ -6,8 +6,8 @@ An intuative way to understand this code is go through the steps you would need 
 
 1. Record youself dancing (make sure NO ONE else is in the frame & that your camera is set to 30FPS).
 2. Post edit some actual music into to the video (I used adobe premiere pro, but any old basic video editor will do). 
-3. Export BOTH an mp3, and an mp4 of ur little boogie.
-4. Nice! you've get everything you need to get crackalaking.
+3. Export BOTH an mp3, and an mp4 of your boogie.
+4. Nice! you've got everything you need to get crackalaking.
 
 STEP 1 ==> Go to base folder "Pose Extract":
            1a. prepare_frames.py > This script "cuts" your video into all of it's individual frames, placing them in a folder.
