@@ -10,7 +10,6 @@ df.drop(df.columns[df.columns.str.contains('unnamed',case = False)],axis = 1, in
 df = df*5
 print(df)  
 
-
 number_cols = len(df.columns) 
 dimensions = 3 
 n_joints = int(number_cols/dimensions)
