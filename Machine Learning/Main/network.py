@@ -1,3 +1,7 @@
+#This is where the network is trained and save 
+
+
+
 from cgi import test
 from gc import callbacks
 from operator import mod
@@ -94,39 +98,6 @@ def cnn_lstm(model_name, model_number):
 	model_enc_dec_cnn.summary()
 	model_enc_dec_cnn.save(f'{model_number}/{model_name}')
 	return model_enc_dec_cnn
-	
-
-def model_8(model_name, model_number):
-	input_layer = Input(shape=(LOOK_BACK,  NUMBER_FEATURES)) 
-	head_list = []
-
-	for i in range(0,  NUMBER_FEATURES):
-		conv_layer_head = Conv1D(filters=3, kernel_size=3, activation='relu')(input_layer)
-		conv_layer_head_2 = Conv1D(filters=1, kernel_size=3, activation='relu')(conv_layer_head)
-		conv_layer_flatten = Flatten()(conv_layer_head_2)
-		head_list.append(conv_layer_flatten)
-	
-	concat_cnn = Concatenate(axis=1)(head_list)
-	reshape = Reshape((head_list[0].shape[1], NUMBER_FEATURES))(concat_cnn)
-
-	lstm = LSTM(300, activation='relu')(reshape)
-	dropout = Dropout(0.2)(lstm)
-	repeat = RepeatVector(FORECAST_HORIZON)(dropout)
-
-	lstm_2 = LSTM(300, activation='relu')(repeat)
-	dropout = Dropout(0.2)(lstm_2)
-	repeat_2 = RepeatVector(FORECAST_HORIZON)(dropout)
-
-	lstm_3 = LSTM(300, activation='relu', return_sequences=True)(repeat_2)
-	dropout_3 = Dropout(0.2)(lstm_3)
-	
-	dense = Dense(NUMBER_LABELS, activation='sigmoid')(dropout_3)
-	multi_head_cnn_lstm_model = Model(inputs=input_layer, outputs=dense)
-
-	multi_head_cnn_lstm_model.compile(optimizer='adam', loss='mse', metrics='accuracy')
-	multi_head_cnn_lstm_model.summary()
-	multi_head_cnn_lstm_model.save(f'model {model_number}/{model_name}')
-	return multi_head_cnn_lstm_model
 
 
 def train_model(model, model_name, model_number):
@@ -156,11 +127,9 @@ def train_model(model, model_name, model_number):
 name = "Kab"
 model_name = 'cnn-lstm-double-dense'
 
+
+#RUN THE FOLLOWING 
 model =  cnn_lstm(model_name=name,  model_number=model_name)
-# model = tf.keras.models.load_model('multi-cnn lstm/Kab')
-# model.summary()
-
-
 model = train_model(model,  model_name=name, model_number=model_name)
 
 

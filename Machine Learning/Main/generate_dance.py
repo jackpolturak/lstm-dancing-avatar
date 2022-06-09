@@ -9,23 +9,18 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-
-#new_model.summary()
-
+#Import datset from Preprocessor 
 preprocess = Preprocessor()
-
-
 train_X, train_Y, test_X, test_Y = preprocess.import_normalize()
 
 
+#Does what it says on the tin 
 def generate_dance(model_number ,train_X, sequence_length):
 
     #Load model 
     model = tf.keras.models.load_model(f'{model_number}/Kab')
-
     frame_generation_number = 0
     input_sequence = train_X[frame_generation_number]
-
 
     #Splice just the first sequence of movement to initalize
     generated_dance_sequence = input_sequence[:, :99]
