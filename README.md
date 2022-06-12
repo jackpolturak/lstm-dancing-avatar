@@ -11,20 +11,19 @@ An intuative way to understand this code is go through the steps you would need 
 
 STEP 1 ==> Go to base folder "Pose Extract":
            1a. prepare_frames.py > This script "cuts" your video into all of it's individual frames, placing them in a folder.
-           1b. generate_csv.py > This get's all ur joint positions for each frame and adds them to a csv dataframe.
+           1b. generate_csv.py > This get's all of your joint positions for each frame and adds them to a csv dataframe.
    
 STEP 2 ==> Go to base folder "Music Extract":
-            2a. audio_features.py > This script extract all the low level audio features from ur mp3 export.
-            2b. Yeah that's pretty much it for this folder. 
+            2a. audio_features.py > This script extracts all low level audio features from ur mp3 export.
  
 STEP 3 ==> Go BACK to base folder "Pose Extract": 
-            3a. merge.py > combines all your dancing data to all the song data. Congratiolations! You've just generated a:
-                           [synchronized dance motion and audio feature datasdet]. This is usually pretty expensive, you now owe me a pint.
+            3a. merge.py > combines all your dancing data to all the song data. Congrats! You've just generated a:
+                           [synchronized dance motion and audio feature datasdet]. This is usually pretty expensive, you now owe me a coffee.
                        
 STEP 4 ==> Go to base folder "Machine Learning":
             4a. network.py > This is where you train your puppet. But you will need to choose what model to use. I personallly like cnn_lstm()
-                              But don't let me influence your choice. Dance is subjective artform.
-            4.b generate_dance.py > Does what it says on the tin, you will need to choose how long you want your puppet to dance for 
+                              But don't let me influence your choice. Dance is a subjective artform.
+            4.b generate_dance.py > Does what it says on the tin, you will need to choose how long you want your puppet to dance for.
 
 STEP 5 ==> DOWNLOAD BLENDER: https://www.blender.org     
             5a. Go to base folder "Visualize" > Copy and paste "visualize_csv.py" into the embedded python console
